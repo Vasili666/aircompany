@@ -16,8 +16,7 @@ public class Airport {
 
 
     public List<PassengerPlane> getPassengerPlane() {
-//        List<? extends Plane> passengerPlanes = this.planes;
-//        List<PassengerPlane> passengerPlane = new ArrayList<>();
+
         List<PassengerPlane> passengerPlanes = new ArrayList<>();
         for (Plane plane : planes) {
             if (plane instanceof PassengerPlane) {
@@ -32,11 +31,8 @@ public class Airport {
         for (Plane plane : planes) {
             if (plane instanceof MilitaryPlane) {
                 militaryPlanes.add((MilitaryPlane) plane);
-            } //if
-            else {
-
-            } // else
-        } //for
+            }
+        }
         return militaryPlanes;
     }
 
