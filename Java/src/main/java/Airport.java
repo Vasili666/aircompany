@@ -44,14 +44,9 @@ public class Airport {
                 planeWithMaxCapacity = passengerPlanes.get(i);
             }
         }
-
-
-
-
-
-
         return planeWithMaxCapacity;
     }
+
 
     public List<MilitaryPlane> getTransportMilitaryPlanes() {
     List<MilitaryPlane> transportMilitaryPlanes = new ArrayList<>();
@@ -98,38 +93,19 @@ public class Airport {
     }
 
 
-    /**
-     * Sorts by max speed
-     * @return Airport
-     */
+
     public Airport sortByMaxSpeed() {
-        Collections.sort(planes, new Comparator<Plane>() {
-            public int compare(Plane o1, Plane o2) {
-                return o1.getMS() - o2.getMS();
-            }
-        });
+        Collections.sort(planes, (Comparator<Plane>) (o1, o2) -> o1.getMaxSpeed() - o2.getMaxSpeed());
         return this;
     }
 
     public Airport sortByMaxLoadCapacity() {
-        Collections.sort(planes, new Comparator<Plane>() {
-            public int compare(Plane o1, Plane o2) {
-                return o1.getMinLoadCapacity() - o2.getMinLoadCapacity();
-            }
-        });
+        Collections.sort(planes, (Comparator<Plane>) (o1, o2) -> o1.getMinLoadCapacity() - o2.getMinLoadCapacity());
         return this;
     }
 
     public List<? extends Plane> getPlanes() {
         return planes;
-    }
-
-    private void print(Collection<? extends Plane> collection) {
-        Iterator<? extends Plane> iterator = collection.iterator();
-        while (iterator.hasNext()) {
-            Plane plane = iterator.next();
-            System.out.println(plane);
-        }
     }
 
     @Override
